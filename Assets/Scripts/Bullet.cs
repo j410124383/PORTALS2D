@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : FindMG
 {
+    //private Rigidbody2D rb;     //¸ÕÌå
+    //private Collider2D coll;    //Åö×²Ìå
 
+    public LayerMask layer;        //Í¼²ãlayer
     public float speed;
+    public float power;
 
     private void Awake()
     {
@@ -16,17 +20,20 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         this.gameObject.transform.Translate(Vector2.right /speed*transform.localScale.x);
-    }
 
-    void OnCollisionStay2D(Collision2D coll)
-    {
-        if (coll.gameObject.tag!="Player")
+        Collider2D col = Physics2D.OverlapCircle(transform.position, 0.1f, layer);
+        if (col)
         {
+            if (col.gameObject.GetComponent<PlayerState>())
+            {
+                col.gameObject.GetComponent<PlayerState>().changeHP(-power);
+            }
+            
             Die();
         }
-       
-   
+
     }
+
 
     void Die()
     {

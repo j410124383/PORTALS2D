@@ -14,4 +14,12 @@ public class PlayerState : FindMG
         HP = MaxHP;
 
     }
+
+    public void changeHP(float hp)
+    {
+        HP += hp;
+
+    }
+
+
 }

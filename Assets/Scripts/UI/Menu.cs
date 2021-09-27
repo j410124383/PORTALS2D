@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-public class Menu : FindMG
+public class Menu : MonoBehaviour
 {
     private void Start()
     {
@@ -25,7 +25,7 @@ public class Menu : FindMG
 
     public void QuitGame()
     {
-        Application.Quit();
+        Application.Quit(); 
     }
 
 }
