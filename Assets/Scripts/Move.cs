@@ -51,9 +51,13 @@ public class Move : MonoBehaviour
         float horizontalMove = Input.GetAxisRaw("Horizontal");      //获取移动指令，GetAxisRaw返回的是-1、0、1
         rb.velocity = new Vector2(horizontalMove * speed, rb.velocity.y);   //实现人物的横向移动
                                                                             //实现人物的翻转
-        if (horizontalMove != 0)
+        if (horizontalMove > 0)
         {
-            transform.localScale = new Vector3(horizontalMove, 1, 1);
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else if(horizontalMove < 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
         }
     }
   
