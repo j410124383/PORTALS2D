@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Wall_black
   m_EditorClassIdentifier: 
   m_DefaultSprite: {fileID: -1583442704607344530, guid: 2074e43c081ecde4a98de3ad605e4a7c, type: 3}
-  m_DefaultGameObject: {fileID: 0}
+  m_DefaultGameObject: {fileID: 4809356131704389413, guid: efda0c410ed84be4b9c29521e37af0ac, type: 3}
   m_DefaultColliderType: 1
   m_TilingRules: []

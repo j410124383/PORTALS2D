@@ -19,7 +19,7 @@ public class Bullet : FindMG
 
     private void Update()
     {
-        this.gameObject.transform.Translate(Vector2.right /speed*transform.localScale.x);
+        this.gameObject.transform.Translate(Vector2.up /speed*transform.localScale.x);
 
         Collider2D col = Physics2D.OverlapCircle(transform.position, 0.1f, layer);
         if (col)

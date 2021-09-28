@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Move : MonoBehaviour
 {
     
     private Rigidbody2D rb;     //刚体
     private Collider2D coll;    //碰撞体
     private Animator anim;      //动画效果
+    [Header("摩擦材质")]
+    public PhysicsMaterial2D p1;
+    public PhysicsMaterial2D p2;
 
     public float speed, jumpForce;  //移动速度和跳跃力量
     public Transform groundCheck;   //地面监测点的位置
@@ -23,6 +27,8 @@ public class Move : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<CapsuleCollider2D>();
         anim = GetComponent<Animator>();
+        rb.sharedMaterial = p1;
+
     }
     void Update()
     {
@@ -39,6 +45,16 @@ public class Move : MonoBehaviour
     private void FixedUpdate()
     {
         isGround = Physics2D.OverlapCircle(groundCheck.position, 0.1f, ground); //判断是否在地面上
+
+        if (isGround)
+        {
+            rb.sharedMaterial = p1;
+        }
+        else
+        {
+            rb.sharedMaterial = p2;
+        }
+
 
         GroundMovement();
 
