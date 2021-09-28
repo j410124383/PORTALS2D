@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Trap_step
   m_EditorClassIdentifier: 
   m_DefaultSprite: {fileID: -6172415067481003495, guid: 2074e43c081ecde4a98de3ad605e4a7c, type: 3}
-  m_DefaultGameObject: {fileID: 0}
+  m_DefaultGameObject: {fileID: 4809356131704389413, guid: 50a907c85841ee542a47dbb3ec55da1b, type: 3}
   m_DefaultColliderType: 1
   m_TilingRules: []
