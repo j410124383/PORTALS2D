@@ -38,9 +38,17 @@ public class Move : MonoBehaviour
             if (isGround)
             {
                 isjumppress = true;
-                Anim.SetBool("isJump", true);
-            }
-            
+                
+            } 
+        }
+
+        if (isGround == true)
+        {
+            Anim.SetBool("isJump", false);
+        }
+        else
+        {
+            Anim.SetBool("isJump", true);
         }
     }
 
@@ -51,11 +59,12 @@ public class Move : MonoBehaviour
         if (isGround)
         {
             rb.sharedMaterial = p1;
+            
         }
         else
         {
             rb.sharedMaterial = p2;
-            Anim.SetBool("isJump", false);
+           
         }
 
 

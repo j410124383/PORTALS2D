@@ -14,7 +14,7 @@ public class PlayerState : FindMG
     {
         MaxHP = 100F;
         HP = MaxHP;
-        isDie = true;
+        isDie = false;
         Anim = GetComponent<Animator>();
     }
 
@@ -29,15 +29,14 @@ public class PlayerState : FindMG
         if (HP<=0)
         {
             HP = 0;
-        isDie = false;
-        Anim.SetBool("isDie",true);
+            isDie = true;
         }
-    }
-    void ToDie()
-    {
-        HP = 0;
-        isDie = false;
-        Anim.SetBool("isDie",true);
+
+        if (isDie == true)
+        {
+            Anim.SetBool("isDie", true);
+        }
+            
     }
 
 }
