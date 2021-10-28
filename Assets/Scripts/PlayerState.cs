@@ -7,12 +7,15 @@ public class PlayerState : FindMG
     [Header("½ÇÉ«×´Ì¬")]
     public float HP;
     public float MaxHP;
+    public bool isDie;
+    private Animator Anim;
 
     private void Awake()
     {
         MaxHP = 100F;
         HP = MaxHP;
-
+        isDie = true;
+        Anim = GetComponent<Animator>();
     }
 
     public void changeHP(float hp)
@@ -21,5 +24,20 @@ public class PlayerState : FindMG
 
     }
 
+    private void Update()
+    {
+        if (HP<=0)
+        {
+            HP = 0;
+        isDie = false;
+        Anim.SetBool("isDie",true);
+        }
+    }
+    void ToDie()
+    {
+        HP = 0;
+        isDie = false;
+        Anim.SetBool("isDie",true);
+    }
 
 }

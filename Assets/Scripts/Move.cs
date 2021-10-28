@@ -8,7 +8,8 @@ public class Move : MonoBehaviour
     
     private Rigidbody2D rb;     //刚体
     private Collider2D coll;    //碰撞体
-    private Animator anim;      //动画效果
+    private Animator Anim;      //动画效果
+   
     [Header("摩擦材质")]
     public PhysicsMaterial2D p1;
     public PhysicsMaterial2D p2;
@@ -26,7 +27,7 @@ public class Move : MonoBehaviour
         //以后补充Awake方法内
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<CapsuleCollider2D>();
-        anim = GetComponent<Animator>();
+        Anim = GetComponent<Animator>();
         rb.sharedMaterial = p1;
 
     }
@@ -37,6 +38,7 @@ public class Move : MonoBehaviour
             if (isGround)
             {
                 isjumppress = true;
+                Anim.SetBool("isJump", true);
             }
             
         }
@@ -53,11 +55,12 @@ public class Move : MonoBehaviour
         else
         {
             rb.sharedMaterial = p2;
+            Anim.SetBool("isJump", false);
         }
 
 
         GroundMovement();
-
+        
         Jump();
 
     }
@@ -75,6 +78,7 @@ public class Move : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().flipX = true;
         }
+        Anim.SetFloat("Speed", Mathf.Abs(horizontalMove));
     }
   
 
@@ -85,6 +89,7 @@ public class Move : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             isjumppress = false;
+            
         }						
 
     }
